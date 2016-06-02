@@ -1,0 +1,68 @@
+<div class="" data-ng-controller="DrchronoController" ng-init="get_all_doctors()">
+	<div class="form-outer">
+		<h1>Select Doctor</h1>
+		<form name="myForm" novalidate>
+			<div class="form-inner">
+				<div class="select-wrapper">
+					<select class="form-control" ng-model="dr.id" id="doctor_list" name="doctor_list" required="">
+						<option value="">Select Doctor</option>
+						<option value="{{doctor.id}}" data-ng-repeat="doctor in doctors">{{doctor.first_name}} {{doctor.last_name}}</option>
+					</select>
+				</div>
+				<div ng-show="myForm.$submitted || myForm.doctor_list.$touched" class="error_msg">
+					<div ng-show="myForm.doctor_list.$error.required">Please select doctor.</div>
+				</div>
+			</div>
+			<button type="submit" class="btn btn-primary" ng-click="get_patient_list(dr)">Get Patients</button>
+		</form>
+	</div>
+
+	<div class="form-outer add_patient_div">
+		<h1>Add Patient</h1>
+		<p style="color: red;">{{msg}}</p>
+		<form name="addPatientForm" novalidate>
+			<div class="form-inner">
+				<div class="form-group">
+					<label for="first_name">First Name</label>
+					<input type="textbox" class="form-control" id="first_name" name="first_name" ng-model="patient.first_name" required="">
+					<div ng-show="addPatientForm.$submitted || addPatientForm.first_name.$touched" class="error_msg">
+						<div ng-show="addPatientForm.first_name.$error.required">Please enter first name.</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="last_name">Last Name</label>
+					<input type="textbox" class="form-control" id="last_name" name="last_name" ng-model="patient.last_name" required="">
+					<div ng-show="addPatientForm.$submitted || addPatientForm.last_name.$touched" class="error_msg">
+						<div ng-show="addPatientForm.last_name.$error.required">Please enter last name.</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="first_name">Select Doctor</label>
+					<div class="checkbox" data-ng-repeat="doctor in doctors">
+						<label>
+							<input type="checkbox" id="doctor_{{doctor.id}}" name="doctor_ids[]" value="{{doctor.id}}" ng-model="patient.doctor_ids[doctor.id]" required="">{{doctor.first_name}} {{doctor.last_name}}
+						</label>
+					</div>
+					<div ng-show="addPatientForm.$submitted || addPatientForm.doctor.$touched" class="error_msg">
+						<div ng-show="addPatientForm.doctor.$error.required">Please select doctor.</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="first_name">Gender</label>
+					<div class="radio">
+						<label>
+							<input type="radio" name="gender" id="gender_male" ng-model="patient.gender" value="Male" checked>Male
+						</label>
+					</div>
+					<div class="radio">
+						<label>
+							<input type="radio" name="gender" id="gender_female" ng-model="patient.gender" value="Female">Female
+						</label>
+					</div>
+				</div>
+			</div>
+			<button type="submit" class="btn btn-primary" ng-click="add_patient(patient)">Add Patient</button>
+		</form>
+	</div>
+</div>
+

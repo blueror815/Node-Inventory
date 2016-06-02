@@ -1,0 +1,51 @@
+<div class="" data-ng-controller="DrchronoController" ng-init="patient_detail()">
+	<h1>Patient Detail</h1>
+	<div class="col-xs-12">
+		<div class="table-responsive detail_table">
+			<table class="table">
+				<tr>
+					<th>Name</th>
+					<td>{{patient.first_name}} {{patient.last_name}}</td>
+				</tr>
+				<tr>
+					<th>Date of Birth</th>
+					<td>{{patient.date_of_birth}}</td>
+				</tr>
+				<tr>
+					<th>Gender</th>
+					<td>{{patient.gender}}</td>
+				</tr>
+				<tr>
+					<th>Doctor</th>
+					<td>{{doctorId}}</td>
+				</tr>
+				<tr>
+					<th>City</th>
+					<td>{{patient.city}}</td>
+				</tr>
+				<tr>
+					<th>State</th>
+					<td>{{patient.state}}</td>
+				</tr>
+				<tr>
+					<th>Ethnicity</th>
+					<td>{{patient.ethnicity}}</td>
+				</tr>
+				<tr>
+					<th>Employer</th>
+					<td>{{patient.employer}}</td>
+				</tr>
+				<tr>
+					<th>Id</th>
+					<td>{{patient.id}}</td>
+				</tr>
+				<tr>
+					<th>Chart Id</th>
+					<td>{{patient.chart_id}}</td>
+				</tr>
+				
+			</table>
+			<button class="btn btn-primary" ng-click="return_patient_list(doctorId)">Returns to Patient list</button>
+		</div>
+	</div>
+</div>

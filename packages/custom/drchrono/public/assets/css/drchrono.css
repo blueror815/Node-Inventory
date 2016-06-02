@@ -1,0 +1,11 @@
+.drchrono-example h1 {
+  background-color: purple
+}
+.detail_table{
+	max-width: 300px;
+	margin: 0 auto;
+}
+.form-outer { margin: 0 auto; max-width: 600px; text-align: center;  width: 100%;}
+.form-inner{ margin:0 0 20px; }
+.form-inner .error_msg{ text-align: left; }
+.form-outer.add_patient_div { text-align: left;}
